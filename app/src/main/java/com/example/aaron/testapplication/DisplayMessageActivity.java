@@ -46,9 +46,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
                 Intent intent = getIntent();
                 String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
+                String messageToWrite = message + "\n";
 
-                outputStream = new FileOutputStream(file);
-                outputStream.write(message.getBytes());
+                outputStream = new FileOutputStream(file, true);
+                outputStream.write(messageToWrite.getBytes());
                 outputStream.close();
 
                 TextView textView = new TextView(this);
