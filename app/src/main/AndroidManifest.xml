@@ -37,11 +37,6 @@
             android:exported="true"
             android:label="@string/notification_title" />
 
-        <!--<provider
-            android:name=".contentprovider.BroadcastContentProvider"
-            android:authorities="lt.andro.broadcastlogger"
-            android:exported="false" />-->
-
         <receiver
             android:name=".AnyBroadcastReceiver"
             android:enabled="true"

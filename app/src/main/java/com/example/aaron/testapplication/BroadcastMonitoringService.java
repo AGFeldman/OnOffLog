@@ -10,9 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BroadcastMonitoringService extends Service {
-    //public BroadcastMonitoringService() {
-    //}
-
     private static final String TAG = BroadcastMonitoringService.class.getSimpleName();
     private static final int NOTIFICATION = 1;
     private AnyBroadcastReceiver mAnyBroadcastReceiver;
@@ -37,11 +34,6 @@ public class BroadcastMonitoringService extends Service {
         return Service.START_STICKY;
     }
 
-
-    /*
-     * (non-Javadoc)
-     * @see android.app.Service#onDestroy()
-     */
     @Override
     public void onDestroy() {
         try {
@@ -53,7 +45,6 @@ public class BroadcastMonitoringService extends Service {
                     "Skipping Exception which might be raising when the receiver is not yet registered");
 
         }
-        // hideNotification(getApplicationContext());
         Log.d(TAG, "onDestroy");
         super.onDestroy();
     }
@@ -76,9 +67,6 @@ public class BroadcastMonitoringService extends Service {
         registerReceiver(mAnyBroadcastReceiver, intentFilter);
     }
 
-    /**
-     * @throws MalformedMimeTypeException
-     */
     private void registerBroadcastReceiverForActionsWithDataType()
             throws IntentFilter.MalformedMimeTypeException {
         IntentFilter intentFilter = new IntentFilter();
@@ -128,38 +116,10 @@ public class BroadcastMonitoringService extends Service {
             pIntentFilter.addAction(sysBroadcast);
         }
 
-        //Custom Broadcast.
+        // Custom Broadcast
         List<String> customBroadcasts = Arrays.asList(getResources().getStringArray(R.array.system_broadcast));
         for (String customBroadcast : customBroadcasts) {
             pIntentFilter.addAction(customBroadcast);
         }
     }
-
-    /**
-     * Show a notification while this service is running.
-     */
-    /*
-    @SuppressWarnings("deprecation")
-    public static void showNotification(Context pContext, String pBroadcastAction) {
-        // TODO use Notification.Builder
-        Notification notification = new Notification(R.drawable.ic_launcher, pBroadcastAction,
-                System.currentTimeMillis());
-
-        // The PendingIntent to launch our activity if the user selects this notification
-        PendingIntent contentIntent = PendingIntent.getActivity(pContext, 0, new Intent(pContext,
-                MainActivity.class), 0);
-
-        // Set the info for the views that show in the notification panel.
-        notification.setLatestEventInfo(pContext, pContext.getText(R.string.notification_title),
-                pBroadcastAction, contentIntent);
-
-        // Send the notification.
-        ((NotificationManager)pContext.getSystemService(NOTIFICATION_SERVICE)).notify(NOTIFICATION,
-                notification);
-    }
-    */
-
-    /*private void hideNotification(Context pContext) {
-        ((NotificationManager)pContext.getSystemService(NOTIFICATION_SERVICE)).cancel(NOTIFICATION);
-    }*/
 }

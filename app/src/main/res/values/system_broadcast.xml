@@ -38,9 +38,6 @@
         <item>android.intent.action.ACTION_POWER_DISCONNECTED</item>
         <item>android.intent.action.ACTION_SHUTDOWN</item>
         <item>android.intent.action.AIRPLANE_MODE</item>
-        <!--<item>android.intent.action.BATTERY_CHANGED</item>-->
-        <!--<item>android.intent.action.BATTERY_LOW</item>-->
-        <!--<item>android.intent.action.BATTERY_OKAY</item>-->
         <item>android.intent.action.BOOT_COMPLETED</item>
         <item>android.intent.action.CAMERA_BUTTON</item>
         <item>android.intent.action.CONFIGURATION_CHANGED</item>
@@ -94,7 +91,6 @@
         <item>android.intent.action.SCREEN_ON</item>
         <item>android.intent.action.TIMEZONE_CHANGED</item>
         <item>android.intent.action.TIME_SET</item>
-        <!--<item>android.intent.action.TIME_TICK</item>-->
         <item>android.intent.action.UID_REMOVED</item>
         <item>android.intent.action.USER_PRESENT</item>
         <item>android.intent.action.WALLPAPER_CHANGED</item>
