@@ -17,34 +17,14 @@ public class DisplayMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        FileOutputStream outputStream;
-        try {
-            String state = Environment.getExternalStorageState();
-            if (Environment.MEDIA_MOUNTED.equals(state)) {
-                File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "mytestdir");
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
 
-                dir.mkdirs();
-
-                File file = new File(dir, "mytestfile");
-
-                Intent intent = getIntent();
-                String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
-                String messageToWrite = message + "\n";
-
-                outputStream = new FileOutputStream(file, true);
-                outputStream.write(messageToWrite.getBytes());
-                outputStream.close();
-
-                TextView textView = new TextView(this);
-                textView.setTextSize(40);
-                textView.setText(message);
-                RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
-                layout.addView(textView);
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(message);
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
+        layout.addView(textView);
     }
 
 }
