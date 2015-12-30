@@ -28,17 +28,18 @@ public class AnyBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void saveReceivedBroadcastDetails(Context pContext, String pAction) {
-        // TODO(agf): Refactor this block
+        // TODO(agf): Refactor this block, include better error handling
+        // TODO(agf): Should display a message in activity that says whether save succeeded
+        String timestamp = dateFormat.format(Calendar.getInstance().getTime());
         try {
             String state = Environment.getExternalStorageState();
             if (Environment.MEDIA_MOUNTED.equals(state)) {
-                File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "mytestdir");
+                File dir = new File(Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_DOCUMENTS), pContext.getString(R.string.log_directory));
 
                 dir.mkdirs();
 
-                File file = new File(dir, "mytestfile");
-
-                String timestamp = dateFormat.format(Calendar.getInstance().getTime());
+                File file = new File(dir, pContext.getString(R.string.log_file));
                 String messageToWrite = timestamp + " " + pAction + "\n";
 
                 FileOutputStream outputStream = new FileOutputStream(file, true);
@@ -49,6 +50,7 @@ public class AnyBroadcastReceiver extends BroadcastReceiver {
             e.printStackTrace();
         }
 
-        Log.i(TAG, "Saved broadcast: Action: " + pAction + ", Time: " + dateFormat.format(Calendar.getInstance().getTime()));
+        Log.i(TAG, "Saved broadcast: Action: " + pAction + ", " +
+                "Time: " + dateFormat.format(Calendar.getInstance().getTime()));
     }
 }

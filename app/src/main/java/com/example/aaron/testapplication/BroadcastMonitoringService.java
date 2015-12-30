@@ -41,9 +41,7 @@ public class BroadcastMonitoringService extends Service {
         } catch (Exception e) {
             // TODO Skipping Exception which might be raising when the receiver is not yet
             // registered
-            Log.d(TAG,
-                    "Skipping Exception which might be raising when the receiver is not yet registered");
-
+            Log.d(TAG, "Skipping Exception which might be raising when the receiver is not yet registered");
         }
         Log.d(TAG, "onDestroy");
         super.onDestroy();
