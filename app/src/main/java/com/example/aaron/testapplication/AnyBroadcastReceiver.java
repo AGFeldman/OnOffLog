@@ -27,7 +27,7 @@ public class AnyBroadcastReceiver extends BroadcastReceiver {
     */
 
     private static final String TAG = AnyBroadcastReceiver.class.getSimpleName();
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
 
     public static final String EXTRA_ACTION = "EXTRA_ACTION";
     public static final String EXTRA_EXTRAS = "EXTRA_EXTRAS";
