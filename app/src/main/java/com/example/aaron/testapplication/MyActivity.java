@@ -1,6 +1,8 @@
 package com.example.aaron.testapplication;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -11,12 +13,13 @@ public class MyActivity extends Activity {
 
     public final static String EXTRA_MESSAGE = "com.example.aaron.testapplication.Message";
 
+    private static String status = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
-        TextView textView = (TextView) findViewById(R.id.message);
-        textView.setText("first!");
+        refresh();
     }
 
     @Override
@@ -42,8 +45,35 @@ public class MyActivity extends Activity {
     }
 
     /** Called when the user clicks the Send button */
+    // TODO(agf): Rename this to "toggle"
     public void sendMessage(View view) {
         TextView textView = (TextView) findViewById(R.id.message);
         textView.setText("abc");
+    }
+
+    // From <http://stackoverflow.com/questions/600207/how-to-check-if-a-service-is-running-on-android>
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isBroadcastRunning() {
+        return isMyServiceRunning(BroadcastMonitoringService.class);
+    }
+
+    private void refresh() {
+        TextView textView = (TextView) findViewById(R.id.message);
+        textView.setText("refreshing...");
+        if (isBroadcastRunning()) {
+            status = "running";
+        } else {
+            status = "stopped";
+        }
+        textView.setText(status);
     }
 }
