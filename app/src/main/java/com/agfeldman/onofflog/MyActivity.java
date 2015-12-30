@@ -1,4 +1,4 @@
-package com.example.aaron.testapplication;
+package com.agfeldman.onofflog;
 
 import android.app.Activity;
 import android.app.ActivityManager;
