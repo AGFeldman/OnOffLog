@@ -104,8 +104,6 @@ public class BroadcastMonitoringService extends Service {
     /**
      * Since we don't want to filter which actions have data and which don't we register two
      * different receivers with full list of actions.
-     *
-     * @param pIntentFilter
      */
     private void addAllKnownActions(IntentFilter pIntentFilter) {
         // System Broadcast
