@@ -11,7 +11,6 @@ import java.util.List;
 
 public class BroadcastMonitoringService extends Service {
     private static final String TAG = BroadcastMonitoringService.class.getSimpleName();
-    private static final int NOTIFICATION = 1;
     private AnyBroadcastReceiver mAnyBroadcastReceiver;
 
     @Override

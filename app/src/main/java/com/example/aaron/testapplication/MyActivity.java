@@ -11,11 +11,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MyActivity extends Activity {
-
-    public final static String EXTRA_MESSAGE = "com.example.aaron.testapplication.Message";
-
-    private static String status = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,12 +71,11 @@ public class MyActivity extends Activity {
 
     private void refresh() {
         TextView textView = (TextView) findViewById(R.id.message);
-        textView.setText("refreshing...");
+        textView.setText(R.string.refreshing_message);
         if (isBroadcastRunning()) {
-            status = "running";
+            textView.setText(R.string.running_message);
         } else {
-            status = "stopped";
+            textView.setText(R.string.stopped_message);
         }
-        textView.setText(status);
     }
 }
