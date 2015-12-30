@@ -20,12 +20,12 @@ This repo doesn't include any build files (because I'm new to Android and I don'
 - Execute the following (only works with *NIX and GNU cp):
 ```
 cd YOUR_PATH
-git clone https://github.com/AGFeldman/OnOffLog.git OnOffLogClone
-cd OnOffLogClone
+git clone https://github.com/AGFeldman/OnOffLog.git OnOffLogTEMP
+cd OnOffLogTEMP
 for item in $(git ls-tree -r master --name-only); do cp --parents $item ../OnOffLog; done
 cp -r .git ../OnOffLog
 cd ..
-rm -rf OnOffLogClone
+rm -rf OnOffLogTEMP
 ```
 
 This repo includes plenty of code from https://github.com/ViliusKraujutis/AndroidBroadcastsMonitor.
