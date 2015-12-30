@@ -35,6 +35,7 @@ public class BroadcastMonitoringService extends Service {
     }
 
     @Override
+    // TODO(agf): This should log something, e.g., call saveReceivedBroadcastDetails
     public void onDestroy() {
         try {
             unregisterReceiver(mAnyBroadcastReceiver);
