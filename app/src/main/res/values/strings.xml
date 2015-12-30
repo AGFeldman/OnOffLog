@@ -8,8 +8,8 @@
     <string name="button_refresh">Refresh</string>
     <string name="button_start">Start</string>
     <string name="button_stop">Stop</string>
-    <string name="log_directory">mytestdir</string>
-    <string name="log_file">mytestfile</string>
+    <string name="log_directory">com.agfeldman.onofflog</string>
+    <string name="log_file">OnOffLog.txt</string>
     <string name="title_activity_display_message">My Message</string>
 
     <string name="menu_settings">Settings</string>
