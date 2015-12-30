@@ -80,7 +80,13 @@ public class AnyBroadcastReceiver extends BroadcastReceiver {
                 // Intent intent = getIntent();
                 // String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
                 // String messageToWrite = message + "\n";
-                String messageToWrite = pAction + " " + pExtrasString + "\n";
+
+                String timestamp = dateFormat.format(Calendar.getInstance().getTime());
+                String messageToWrite = timestamp + " " + pAction;
+                if (pExtrasString != "") {
+                    messageToWrite += " " + pExtrasString;
+                }
+                messageToWrite += "\n";
 
                 FileOutputStream outputStream = new FileOutputStream(file, true);
                 outputStream.write(messageToWrite.getBytes());
