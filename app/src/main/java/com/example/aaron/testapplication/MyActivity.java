@@ -3,6 +3,7 @@ package com.example.aaron.testapplication;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -45,10 +46,19 @@ public class MyActivity extends Activity {
     }
 
     /** Called when the user clicks the Send button */
-    // TODO(agf): Rename this to "toggle"
-    public void sendMessage(View view) {
+    public void toggle(View view) {
         TextView textView = (TextView) findViewById(R.id.message);
-        textView.setText("abc");
+        textView.setText("refreshing...");
+        if (status == "running") {
+            stopService(new Intent(this, BroadcastMonitoringService.class));
+        } else {
+            startService(new Intent(this, BroadcastMonitoringService.class));
+        }
+        refresh();
+    }
+
+    public void refresh(View view) {
+        refresh();
     }
 
     // From <http://stackoverflow.com/questions/600207/how-to-check-if-a-service-is-running-on-android>

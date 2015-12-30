@@ -13,8 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
     <Button
-        android:onClick="sendMessage"
+        android:onClick="refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_send"/>
+        android:text="@string/button_refresh" />
+    <Button
+        android:onClick="toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_toggle"/>
 </LinearLayout>
