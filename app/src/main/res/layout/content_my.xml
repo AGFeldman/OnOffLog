@@ -18,8 +18,13 @@
         android:layout_height="wrap_content"
         android:text="@string/button_refresh" />
     <Button
-        android:onClick="toggle"
+        android:onClick="start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_toggle"/>
+        android:text="@string/button_start"/>
+    <Button
+        android:onClick="stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_stop"/>
 </LinearLayout>

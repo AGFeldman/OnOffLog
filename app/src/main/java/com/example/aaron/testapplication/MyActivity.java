@@ -45,19 +45,17 @@ public class MyActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Called when the user clicks the Send button */
-    public void toggle(View view) {
-        TextView textView = (TextView) findViewById(R.id.message);
-        textView.setText("refreshing...");
-        if (status == "running") {
-            stopService(new Intent(this, BroadcastMonitoringService.class));
-        } else {
-            startService(new Intent(this, BroadcastMonitoringService.class));
-        }
+    public void refresh(View view) {
         refresh();
     }
 
-    public void refresh(View view) {
+    public void start(View view) {
+        startService(new Intent(this, BroadcastMonitoringService.class));
+        refresh();
+    }
+
+    public void stop(View view) {
+        stopService(new Intent(this, BroadcastMonitoringService.class));
         refresh();
     }
 
