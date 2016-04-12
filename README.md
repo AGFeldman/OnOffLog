@@ -2,15 +2,17 @@ Keep a log of when Android display turns on/off. I am interested in using this i
 
 Log is saved on external storage at `documents/com.agfeldman.onofflog/OnOffLog.txt`. I manually export this file to Dropbox.
 
+Tested with Android Studio 2.0, Galaxy S3, and Nexus 5x.
+
 This repo doesn't include any build files (because I'm new to Android and I don't want to version control a ton of automatically generated files that I don't understand). To build with Android Studio, do the following:
 
 - Start a new Android Studio project
     - Application name: OnOffLog
     - Company Domain: agfeldman.com
-    - Package name: com.agfeldman.OnOffLog
+    - Package name: com.agfeldman.onofflog
     - Project location: YOUR_PATH/OnOffLog
 - Target Phone and Tablet with Minimum SDK: API 10
-- Select "Blank Activity"
+- Select "Basic Activity" (this may have been called "Blank Activity" in earlier versions of Android Studio)
     - Activity Name: MyActivity
     - Layout Name: activity_my
     - Title: MyActivity
