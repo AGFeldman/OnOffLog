@@ -1,7 +1,1 @@
 /build
-
-proguard-rules.pro
-
-/src/androidTest/java/com/agfeldman/onofflog/ApplicationTest.java
-/src/main/res/values-w820dp/dimens.xml
-/src/test/java/com/agfeldman/onofflog/ExampleUnitTest.java
